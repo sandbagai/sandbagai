@@ -147,19 +147,25 @@ app.post('/api/chat/:scenarioId/response', async (req, res) => {
     scenario.chatLog.push({ sender: 'user', text: message, timestamp: Date.now() });
     const chat_history_str = scenario.chatLog.map(log => `${log.sender}: ${log.text}`).join('\n');
 
-    // 3. (★ v8.0: AI 엔진에 보낼 데이터 조립 - SimulationRequest 기준 ★)
-    const dataForAiEngine = {
-        scenario_description: scenario.rules.scene_description,
-        character_name: scenario.rules.actor_name,
-        character_personality: scenario.rules.actor_rules,
-        current_character_emotions: scenario.currentState, // (DB의 현재 상태)
-        user_input: message,
-        conversation_history: chat_history_str,
-        thought_process: "" // (이전 턴의 thought_process를 저장했다가 넘겨줄 수도 있음)
-    };
+// 3. (★핵심★) AI 엔진에 보낼 데이터 조립
+// (ai/main.py의 SimulationRequest Pydantic 모델 기준)
 
-    console.log("BE: AI 엔진(/ai/generate_simulation)에 요청 전송...");
+// (★ v7.0 최종 수정: timestamp를 문자열로 변환 ★)
+const chatLogInString = scenario.chatLog.map(log => ({
+    sender: log.sender,
+    text: log.text,
+    timestamp: log.timestamp.toISOString() // Date 객체를 ISO 문자열로 변환
+}));
 
+const dataForAiEngine = {
+  current_state: scenario.currentState, 
+  rules: scenario.rules,                 
+  user_message: message,                 
+  chat_log: chatLogInString // (★ 문자열로 변환된 로그 전달 ★)
+};
+
+console.log("BE: AI 엔진(/ai/generate_simulation)에 요청 전송...");
+// ( ... 이하 코드는 동일 ... )
     // 4. AI 엔진 호출
     const aiResponse = await axios.post(
       `${AI_ENGINE_URL}/ai/generate_simulation`, 
