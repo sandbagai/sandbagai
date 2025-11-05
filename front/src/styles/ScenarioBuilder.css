@@ -1,0 +1,100 @@
+.scenario-builder-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: 1;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.step-item.active .step-number {
+  background-color: #007bff;
+}
+
+.step-item.completed .step-number {
+  background-color: #28a745; /* 완료된 스텝은 초록색 */
+}
+
+.step-name {
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.step-item.active .step-name {
+  color: #333;
+  font-weight: bold;
+}
+
+.scenario-form h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.scenario-form p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.scenario-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.button-group button {
+  min-width: 120px;
+}

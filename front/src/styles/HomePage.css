@@ -1,0 +1,95 @@
+.homepage-container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero-section {
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  font-size: 48px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.start-button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-right: 15px;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
+
+.how-it-works-button {
+  background-color: #f8f9fa;
+  color: #007bff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.how-it-works-button:hover {
+  background-color: #e2f0ff;
+}
+
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
